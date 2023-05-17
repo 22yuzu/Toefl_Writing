@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TOEFL Writing Practice</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <div class="loader-container">
+        <div class="loader"></div>
+      </div>
+    <h1>TOEFL Writing Practice</h1>
+    <form action="/" method="post">
+        <button type="submit">Generate a question</button>
+    </form>
+    {% if question %}
+        <h2>Question</h2>
+        <p>{{ question }}</p>
+        <form action="/score" method="post">
+            <textarea name="answer" id="answer"></textarea>
+            <p id="count">0 words</p>
+            <button type="submit">Score</button>
+        </form>
+    {% endif %}
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
